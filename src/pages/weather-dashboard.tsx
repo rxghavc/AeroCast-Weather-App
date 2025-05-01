@@ -81,7 +81,7 @@ import {
           <AlertTitle>Error</AlertTitle>
           <AlertDescription className="flex flex-col gap-4">
             <p>Failed to fetch weather data. Please try again.</p>
-            <Button variant="outline" onClick={handleRefresh} className="w-fit">
+            <Button variant="outline" onClick={handleRefresh} className="w-fit rotate-180">
               <RefreshCw className="mr-2 h-4 w-4" />
               Retry
             </Button>
