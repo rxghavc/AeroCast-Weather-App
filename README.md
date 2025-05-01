@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+# AeroCast - Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AeroCast is a modern weather application built with React, TypeScript, and Vite. It provides real-time weather updates, forecasts, and location-based weather details. The app is designed with a responsive UI and supports both light and dark themes.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Real-Time Weather Updates**: Get current weather conditions for your location.
+- **5-Day Forecast**: View detailed weather forecasts for the next five days.
+- **Hourly Temperature**: Visualize temperature changes throughout the day.
+- **Favorite Cities**: Save and manage your favorite locations for quick access.
+- **Dark and Light Themes**: Toggle between dark and light modes for better usability.
+- **Geolocation Support**: Automatically fetch weather data based on your current location.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React, TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **State Management**: React Context API
+- **API**: OpenWeather API
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Folder Structure
+
+```
+AeroCast/
+├── public/                # Static assets
+├── src/
+│   ├── api/              # API configuration and types
+│   ├── components/       # Reusable UI components
+│   ├── context/          # Context providers (e.g., theme)
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions
+│   ├── pages/            # Page components
+│   ├── App.tsx           # Main app component
+│   ├── main.tsx          # Entry point
+│   └── index.css         # Global styles
+├── .env                   # Environment variables
+├── package.json           # Project metadata and scripts
+├── vite.config.ts         # Vite configuration
+└── README.md              # Project documentation
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Acknowledgments
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- [OpenWeather API](https://openweathermap.org/api) for providing weather data.
+- [RoadsideCoder](https://www.youtube.com/watch?v=BCp_5PoKrvI&ab_channel=RoadsideCoder) for creating this tutorial project.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Disclaimer
+
+This project was inspired by a tutorial created by RoadsideCoder. While the UI design and CSS styling were referenced from the tutorial, the backend logic and 70% of the implementation were independently developed to test and enhance backend skills. Huge thanks to RoadsideCoder for introducing the ShadCN library and TypeScript concepts.
