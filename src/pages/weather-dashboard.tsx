@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
     useForecastQuery,
     useReverseGeocodeQuery,
@@ -15,6 +16,7 @@ import {
   import { FavoriteCities } from "../components/favorite-cities";
   
   export function WeatherDashboard() {
+    const [isSpinning, setIsSpinning] = useState(false);
     const {
       coordinates,
       error: locationError,
@@ -28,12 +30,14 @@ import {
   
     // Function to refresh all data
     const handleRefresh = () => {
+      setIsSpinning(true);
       getLocation();
       if (coordinates) {
         weatherQuery.refetch();
         forecastQuery.refetch();
         locationQuery.refetch();
       }
+      setTimeout(() => setIsSpinning(false), 1000); // Stop spinning after 1 second
     };
   
     if (locationLoading) {
@@ -106,8 +110,8 @@ import {
             disabled={weatherQuery.isFetching || forecastQuery.isFetching}
           >
             <RefreshCw
-              className={`h-4 w-4 ${
-                weatherQuery.isFetching ? "animate-spin" : ""
+              className={`h-4 w-4 transition-transform duration-300 ${
+                isSpinning ? "animate-spin" : ""
               }`}
             />
           </Button>
